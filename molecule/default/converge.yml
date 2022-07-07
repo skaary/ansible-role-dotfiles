@@ -1,0 +1,19 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    dotfile_home: /home/molecule
+    dotfile_repo: https://github.com/neg-serg/dotfiles
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+
+    - name: create user molecule
+      user:
+        name: molecule
+
+  tasks:
+    - name: "Include ansible-role-dotfiles"
+      include_role:
+        name: "ansible-role-dotfiles"

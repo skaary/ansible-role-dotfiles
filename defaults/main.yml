@@ -1,0 +1,9 @@
+---
+dotfile_home: "{{ ansible_env.HOME }}"
+dotfile_dir: "{{ dotfile_home }}/dotfiles"
+
+required_packages:
+  - git
+  - stow
+
+dotfile_repo: ""

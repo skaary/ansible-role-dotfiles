@@ -1,0 +1,12 @@
+---
+- name: ensure required packages exist
+  apt:
+    name: "{{ required_packages }}"
+    state: present
+  become: true
+
+- name: clone dotfile repository
+  git:
+    repo: "{{ dotfile_repo }}"
+    dest: "{{ dotfile_dir }}"
+  changed_when: false
