@@ -1,0 +1,7 @@
+---
+- name: Install dotfiles
+  hosts: all
+  vars:
+    dotfile_repo: https://github.com/neg-serg/dotfiles
+  roles:
+    - dotfiles
