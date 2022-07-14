@@ -3,10 +3,12 @@
   apt:
     name: "{{ required_packages }}"
     state: present
+  when: dotfile_repo | length > 0
   become: true
 
 - name: clone dotfile repository
   git:
     repo: "{{ dotfile_repo }}"
     dest: "{{ dotfile_dir }}"
+  when: dotfile_repo|length > 0
   changed_when: false
